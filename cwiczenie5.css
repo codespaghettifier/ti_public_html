@@ -1,0 +1,8 @@
+.header
+{
+    border-width: 2px;
+    border-style: solid;
+    border-color: #ff0000;
+    text-align: center;
+    font-size: x-large;
+}
