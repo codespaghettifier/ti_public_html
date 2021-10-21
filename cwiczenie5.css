@@ -1,8 +1,72 @@
-.header
+body
+{
+    margin: 0 10%;
+}
+
+article
+{
+    padding: 5px;
+}
+
+header
 {
     border-width: 2px;
     border-style: solid;
     border-color: #ff0000;
     text-align: center;
     font-size: x-large;
+    margin: 20px 0 20px 0;
+}
+
+.content
+{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+table#grades
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #000000;
+    border-spacing: 0;
+
+}
+
+table#grades > thead > tr
+{
+    background-color: aqua;
+}
+
+table#grades th.table_header
+{
+    background-color: violet;
+    text-align: center;
+}
+
+table#grades > tbody > tr:nth-child(odd)
+{
+    background-color: lawngreen;
+}
+
+table#grades > tbody > tr:nth-child(even)
+{
+    background-color: #ffffff;
+}
+
+table#grades > tfoot > tr
+{
+    background-color: palegoldenrod;
+}
+
+a.medium_image
+{
+    width: 25%;
+}
+
+a.medium_image > img
+{
+    width: 100%;
 }
