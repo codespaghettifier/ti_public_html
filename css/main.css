@@ -4,6 +4,8 @@
     --content_background_color: #424242;
     --main_header_color: #b71c1c;
     --menu_header_color: #d32f2f;
+    --catalog_link_color: #2979ff;
+    --catalog_link_color_hover: #82b1ff;
     --link_color: #00b0ff;
     --link_color_hover: #80d8ff;
 }
@@ -14,6 +16,7 @@ body
     margin: 50px 0;
     display: block;
     font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    color: #ffffff;
 }
 
 a
@@ -46,8 +49,8 @@ header#main_header h1
 
 div.list_menu
 {
-    text-align: center;
-    margin: 0;
+    text-align: left;
+    margin: 0 40px;
     padding: 16px 0;
 }
 
@@ -66,19 +69,39 @@ header.list_menu_header h2
 
 div.list_menu .catalog_link
 {
-    color: var(--link_color);
+    color: var(--catalog_link_color);
     margin: 0;
 }
 
 div.list_menu .catalog_link:hover
 {
+    color: var(--catalog_link_color_hover);
+}
+
+div.list_menu .link
+{
+    color: var(--link_color);
+    margin: 0;
+}
+
+div.list_menu .link:hover
+{
     color: var(--link_color_hover);
 }
 
-div.list_menu .catalog_link h2
+div.list_menu h3
+{
+    font-size: 28px;
+    line-height: 42px;
+    padding: 1px 0;
+    margin: 0 25px;
+    color: var(--menu_header_color);
+}
+
+div.list_menu h4
 {
     font-size: 24px;
     line-height: 32px;
     padding: 8px 0;
-    margin: 0;
+    margin: 0 50px;
 }
