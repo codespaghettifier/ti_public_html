@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../css/main.css"?>
+
+<html lang="pl" xmlns="http://www.w3.org/1999/xhtml" xml:lang="pl">
+	<head>
         <title>Techniki internetowe 2021/2022</title>
-        <link rel="StyleSheet" href="../css/main.css" type="text/css">
-    </head>
+	</head>
+
     <body>
         <div id="content">
             <article>
