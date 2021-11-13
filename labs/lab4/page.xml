@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html>
+    <head>
+            <title>Techniki internetowe 2021/2022</title>
+    </head>
+
+    <body>
+        <article>
+            <header>
+                <title>Techniki internetowe 2021/2022</title>
+            </header>
+            <list>
+                <header>
+                    <title>Podstrony</title>
+                </header>
+                <element>
+                    <title>Laboratorium 1: Język HTML5 i arkusze styli CSS</title>
+                    <task class="catalog_link" link="index.html">
+                        labs
+                    </task>
+                    <task class="link" link="lab1/lab1.html">
+                        Skrypt 3b
+                    </task>
+                    <task class="link" link="lab1/cwiczenie5.html">
+                        Ćwiczenie 5
+                    </task>
+                </element>
+                <element>
+                    <title>Laboratorium 2: Język XML</title>
+                    <task class="catalog_link" link="index.xml">
+                        labs
+                    </task>
+                </element>
+            </list>
+        </article>
+    </body>
+</html>
