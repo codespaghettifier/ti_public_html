@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<warehouse>
+    <product_group>
+        <name>Żywność</name>
+        <product>
+            <name>Mleko</name>
+            <quantity>82</quantity>
+            <price>2.88</price>
+        </product>
+        <product>
+            <name>Cukier</name>
+            <quantity>30</quantity>
+            <price>3.2</price>
+        </product>
+        <product>
+            <name>Pomidor</name>
+            <quantity>420</quantity>
+            <price>7.99</price>
+        </product>
+        <product>
+            <name>Woda mineralna Vytautas</name>
+            <quantity>42</quantity>
+            <price>5.49</price>
+        </product>
+        <product>
+            <name>Kawa</name>
+            <quantity>20</quantity>
+            <price>17.89</price>
+        </product>
+    </product_group>
+    <product_group>
+        <name>AGD</name>
+        <product>
+            <name>Pralka</name>
+            <quantity>4</quantity>
+            <price>1799</price>
+        </product>
+        <product>
+            <name>Lodówka Haier</name>
+            <quantity>2</quantity>
+            <price>4200</price>
+        </product>
+        <product>
+            <name>Piekarnik</name>
+            <quantity>8</quantity>
+            <price>1399</price>
+        </product>
+        <product>
+            <name>Telewizor</name>
+            <quantity>6</quantity>
+            <price>2199</price>
+        </product>
+    </product_group>
+        <product_group>
+        <name>Książki</name>
+        <product>
+            <name>Przewodnik autostopowicza po galaktyce</name>
+            <quantity>9</quantity>
+            <price>49</price>
+        </product>
+        <product>
+            <name>Symfonia C++</name>
+            <quantity>4</quantity>
+            <price>119</price>
+        </product>
+        <product>
+            <name>Władca pierścieni</name>
+            <quantity>8</quantity>
+            <price>89</price>
+        </product>
+        <product>
+            <name>DIY coffins for pets and people</name>
+            <quantity>2</quantity>
+            <price>39</price>
+        </product>
+        <product>
+            <name>Leviathan wakes</name>
+            <quantity>5</quantity>
+            <price>44</price>
+        </product>
+        <product>
+            <name>Structures - or why things don't fall down</name>
+            <quantity>1</quantity>
+            <price>69</price>
+        </product>
+    </product_group>
+</warehouse>

@@ -1,0 +1,72 @@
+:root
+{
+    --page_background_color: #212121;
+    --content_background_color: #424242;
+    --content_background_color_lighter: #616161;
+    --main_header_color: #b71c1c;
+    --menu_header_color: #d32f2f;
+    --catalog_link_color: #2979ff;
+    --catalog_link_color_hover: #82b1ff;
+    --link_color: #00b0ff;
+    --link_color_hover: #80d8ff;
+}
+
+body
+{
+    background-color: var(--page_background_color);
+    margin: 50px 50px;
+    background-color: var(--page_background_color);
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    color: #ffffff;
+}
+
+table.products
+{
+    background-color: var(--content_background_color);
+}
+
+table.products, table.products th, table.products td
+{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #9E9E9E;
+    border-spacing: 0;
+}
+
+table.products .header
+{
+    background-color: #98100f;
+    font-size: 24px;
+}
+
+table.products .header th
+{
+    padding: 4px 10px;
+}
+
+table.products .product_group_header
+{
+    background-color: #801818;
+    font-size: 20px;
+}
+
+table.products .product_group_header th
+{
+    padding: 2px 10px;
+}
+
+table.products tbody td
+{
+    padding: 2px 10px;
+}
+
+table.products > tbody > tr:nth-child(odd) > td
+{
+    background-color: var(--content_background_color_lighter);
+}
+
+table.products > tbody > tr:nth-child(even) > td
+{
+    background-color: var(--content_background_color);
+}
+
