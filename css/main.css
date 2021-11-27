@@ -1,13 +1,16 @@
 :root
 {
     --page_background_color: #212121;
+    --content_background_color_darker: #323232;
     --content_background_color: #424242;
+    --content_background_color_lighter: #515151;
     --main_header_color: #b71c1c;
     --menu_header_color: #d32f2f;
     --catalog_link_color: #2979ff;
     --catalog_link_color_hover: #82b1ff;
     --link_color: #00b0ff;
-    --link_color_hover: #80d8ff;
+    --link_color_hover: #40C4FF;
+    --link_color_darker: #0091ea;
 }
 
 body
@@ -28,6 +31,7 @@ div#content
 {
     background-color: var(--content_background_color);
     margin: 0 5%;
+    padding: 16px 0 48px 0;
 }
 
 header#main_header
@@ -104,4 +108,10 @@ div.list_menu h4
     line-height: 32px;
     padding: 8px 0;
     margin: 0 50px;
+}
+
+div.center_content
+{
+    display: flex;
+    justify-content: space-around;
 }

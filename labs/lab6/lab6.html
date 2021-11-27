@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Techniki internetowe 2021/2022</title>
+        <link rel="StyleSheet" href="../../css/main.css" type="text/css">
+        <link rel="StyleSheet" href="lab6.css" type="text/css">
+    </head>
+    <body>
+        <div id="content">
+            <header id="main_header">
+                <h1>Techniki internetowe 2021/2022</h1>
+            </header>
+            <article>
+                <div class="data_form_and_inspector_container">
+                    <div class="menu_bar">
+                        <a class="menu_option" style="color: var(--link_color)">Formularz do wporwadzania danych</a>
+                        <a class="menu_option">Lista danych</a>
+                    </div>
+                    <div class="data_form_container">
+                        <form class="data_form" name="data_form">
+                            <p>*Imię:</p>
+                            <input type="text" size="50" name="first name"/>
+                            <p>*Nazwisko:</p>
+                            <input type="text" size="50" name="last name"/>
+                            <p>*Adres e-mail:</p>
+                            <input type="text" size="50" name="email"/>
+                            <p>*Rok studiów:</p>
+                            <select name="rok">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <div class="center_content">
+                                <input class="submit_button" type="button" value="Wyślij"/>
+                            </div>
+                            <p>* pole wymagane</p>
+                        </form>
+                    </div>
+                    <div class="data_table_container">
+                        <table class="data_table">
+                            <thead class="header">
+                                <th>Imię</th>
+                                <th>Nazwisko</th>
+                                <th>Adres e-mail</th>
+                                <th>Rok studiów</th>
+                            </thead>
+                            <tbody>
+                                <tr class="data_record">
+                                    <td>Imię</td>
+                                    <td>Nazwisko</td>
+                                    <td>e-mail</td>
+                                    <td>rok</td>
+                                </tr>
+                                <tr class="data_record">
+                                    <td>Imię</td>
+                                    <td>Nazwisko</td>
+                                    <td>e-mail</td>
+                                    <td>rok</td>
+                                </tr>
+                                <tr class="data_record">
+                                    <td>Imię</td>
+                                    <td>Nazwisko</td>
+                                    <td>e-mail</td>
+                                    <td>rok</td>
+                                </tr>
+                                <tr class="data_record">
+                                    <td>Imię</td>
+                                    <td>Nazwisko</td>
+                                    <td>e-mail</td>
+                                    <td>rok</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </body>
+</html>
