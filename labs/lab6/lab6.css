@@ -11,11 +11,11 @@ div.menu_bar
     display: flex;
     justify-content: space-around;
     text-align: center;
+    margin: 0 0 20px 0;
 }
 
-div.menu_bar a.menu_option
+div.menu_bar a.menu_option_active, div.menu_bar a.menu_option_inactive 
 {
-    color: var(--link_color_darker);
     font-size: 32px;
     line-height: 48px;
     padding: 0 0 5px 0;
@@ -23,7 +23,17 @@ div.menu_bar a.menu_option
     font-weight: 700;
 }
 
-div.menu_bar a.menu_option:hover
+div.menu_bar a.menu_option_active
+{
+    color: var(--link_color);
+}
+
+div.menu_bar a.menu_option_inactive
+{
+    color: var(--link_color_darker);
+}
+
+div.menu_bar a.menu_option_active:hover, div.menu_bar a.menu_option_inactive:hover
 {
     color: var(--link_color_hover);
     padding: 0;

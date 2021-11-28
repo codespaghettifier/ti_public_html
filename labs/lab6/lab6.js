@@ -1,11 +1,13 @@
-let $dataform = $(".data_form");
-let $form_tab_button = $("#form_tab_button");
-let $inspector_tab_button = $("#inspector_tab_button");
-let $firstNameInput = $dataform.find("[name=\"first name\"]");
-let $lastNameInput = $dataform.find("[name=\"last name\"]");
-let $emailInput = $dataform.find("[name=\"email\"]");
-let $yearSelect = $dataform.find("[name=\"year\"]");
-let $submitButton = $dataform.find("#form_submit_button");
+let $dataFormContainer = $(".data_form_container")
+let $dataTableContainer = $(".data_table_container")
+let $dataForm = $(".data_form");
+let $formTabButton = $("#form_tab_button");
+let $inspectorTabButton = $("#inspector_tab_button");
+let $firstNameInput = $dataForm.find("[name=\"first name\"]");
+let $lastNameInput = $dataForm.find("[name=\"last name\"]");
+let $emailInput = $dataForm.find("[name=\"email\"]");
+let $yearSelect = $dataForm.find("[name=\"year\"]");
+let $submitButton = $dataForm.find("#form_submit_button");
 
 function isFirstNameValid()
 {
@@ -31,12 +33,12 @@ function onFirstNameInput()
 {
     if(isFirstNameValid())
     {
-        $dataform.find("#no_first_name_error_info").css("display", "none");
+        $dataForm.find("#no_first_name_error_info").css("display", "none");
         $firstNameInput.attr("class", "valid_text_input");
     }
     else
     {
-        $dataform.find("#no_first_name_error_info").css("display", "inline");
+        $dataForm.find("#no_first_name_error_info").css("display", "inline");
         $firstNameInput.attr("class", "invalid_text_input");
     }
 }
@@ -45,12 +47,12 @@ function onLastNameInput()
 {
     if(isLastNameValid())
     {
-        $dataform.find("#no_last_name_error_info").css("display", "none");
+        $dataForm.find("#no_last_name_error_info").css("display", "none");
         $lastNameInput.attr("class", "valid_text_input");
     }
     else
     {
-        $dataform.find("#no_last_name_error_info").css("display", "inline");
+        $dataForm.find("#no_last_name_error_info").css("display", "inline");
         $lastNameInput.attr("class", "invalid_text_input");
     }
 }
@@ -59,12 +61,12 @@ function onEmailInput()
 {
     if(isEmailValid())
     {
-        $dataform.find("#no_email_error_info").css("display", "none");
+        $dataForm.find("#no_email_error_info").css("display", "none");
         $emailInput.attr("class", "valid_text_input");
     }
     else
     {
-        $dataform.find("#no_email_error_info").css("display", "inline");
+        $dataForm.find("#no_email_error_info").css("display", "inline");
         $emailInput.attr("class", "invalid_text_input");
     }
 }
@@ -91,6 +93,22 @@ function submitButtonOnClick()
     {
         console.log(result);
     });
+}
+
+function onFormTabButtonClick()
+{
+    $formTabButton.attr("class", "menu_option_active");
+    $inspectorTabButton.attr("class", "menu_option_inactive");
+    $dataFormContainer.css("display", "flex");
+    $dataTableContainer.css("display", "none");
+}
+
+function onInspectorTabButtonClick()
+{
+    $inspectorTabButton.attr("class", "menu_option_active");
+    $formTabButton.attr("class", "menu_option_inactive");
+    $dataTableContainer.css("display", "flex");
+    $dataFormContainer.css("display", "none");
 }
 
 $firstNameInput.on("input", function()
@@ -132,4 +150,14 @@ $emailInput.on("blur", function()
 $submitButton.on("click", function()
 {
     submitButtonOnClick();
+});
+
+$formTabButton.on("click", function()
+{
+    onFormTabButtonClick();
+});
+
+$inspectorTabButton.on("click", function()
+{
+    onInspectorTabButtonClick();
 });

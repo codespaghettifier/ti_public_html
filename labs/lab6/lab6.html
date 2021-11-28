@@ -14,8 +14,8 @@
             <article>
                 <div class="data_form_and_inspector_container">
                     <div class="menu_bar">
-                        <a class="menu_option" id="form_tab_button" style="color: var(--link_color)">Formularz do wporwadzania danych</a>
-                        <a class="menu_option" id="inspector_tab_button">Lista danych</a>
+                        <a class="menu_option_active" id="form_tab_button">Formularz do wporwadzania danych</a>
+                        <a class="menu_option_inactive" id="inspector_tab_button">Lista danych</a>
                     </div>
                     <div class="data_form_container">
                         <form class="data_form" name="data_form">
@@ -39,7 +39,7 @@
                             <p>* pole wymagane</p>
                         </form>
                     </div>
-                    <div class="data_table_container">
+                    <div class="data_table_container" style="display: none;">
                         <table class="data_table">
                             <thead class="header">
                                 <th>Imię</th>
