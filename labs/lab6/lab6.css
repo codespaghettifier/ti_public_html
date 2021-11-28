@@ -43,27 +43,68 @@ form.data_form
     font-size: 20px;
 }
 
+form.data_form span.error_info
+{
+    display: none;
+    font-weight: 700;
+    color: var(--error_info);
+}
+
 form.data_form input
 {
     height: 32px;
     font-size: 20px;
     border-style: solid;
     border-width: 1px;
-    border-color: var(--link_color_darker);
     background-color: var(--content_background_color_darker);
     color: #ffffff;
     padding: 4px 8px;
 }
 
-form.data_form input:hover, form.data_form input:focus  
+form.data_form input.valid_text_input
+{
+    border-color: var(--link_color_darker);
+}
+
+form.data_form input.invalid_text_input
+{
+    border-color: var(--error_info);
+}
+
+form.data_form input.valid_text_input:hover, form.data_form input.valid_text_input:focus  
 {
     border-color: var(--link_color);
     box-shadow: 2px 0 2px var(--link_color), -2px 0 2px var(--link_color);
 }
 
+form.data_form input.invalid_text_input:hover, form.data_form input.invalid_text_input:focus  
+{
+    border-color: var(--error_info);
+    box-shadow: 2px 0 2px var(--error_info), -2px 0 2px var(--error_info);
+}
+
+form.data_form input.submit_button_inactive
+{
+    min-height: 42px;
+}
+
+form.data_form input.submit_button_active
+{
+    height: 42px;
+    border-color: var(--link_color_darker);
+    color: var(--link_color);
+}
+
+form.data_form input.submit_button_active:hover
+{
+    border-color: var(--link_color);
+    box-shadow: 2px 0 2px var(--link_color), -2px 0 2px var(--link_color);
+    color: var(--link_color_hover);
+}
+
 form.data_form select
 {
-    height: 32px;
+    height: 42px;
     min-width: 80px;
     font-size: 20px;
     border-style: solid;

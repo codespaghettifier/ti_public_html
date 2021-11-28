@@ -14,19 +14,19 @@
             <article>
                 <div class="data_form_and_inspector_container">
                     <div class="menu_bar">
-                        <a class="menu_option" style="color: var(--link_color)">Formularz do wporwadzania danych</a>
-                        <a class="menu_option">Lista danych</a>
+                        <a class="menu_option" id="form_tab_button" style="color: var(--link_color)">Formularz do wporwadzania danych</a>
+                        <a class="menu_option" id="inspector_tab_button">Lista danych</a>
                     </div>
                     <div class="data_form_container">
                         <form class="data_form" name="data_form">
-                            <p>*Imię:</p>
-                            <input type="text" size="50" name="first name"/>
-                            <p>*Nazwisko:</p>
-                            <input type="text" size="50" name="last name"/>
-                            <p>*Adres e-mail:</p>
-                            <input type="text" size="50" name="email"/>
+                            <p>*Imię: <span class="error_info" id="no_first_name_error_info">Brak imienia</span></p>
+                            <input type="text" size="50" name="first name" class="valid_text_input"/>
+                            <p>*Nazwisko: <span class="error_info" id="no_last_name_error_info">Brak nazwiska</span></p>
+                            <input type="text" size="50" name="last name" class="valid_text_input"/>
+                            <p>*Adres e-mail: <span class="error_info" id="no_email_error_info">Brak adresu e-mail</span></p>
+                            <input type="text" size="50" name="email" class="valid_text_input"/>
                             <p>*Rok studiów:</p>
-                            <select name="rok">
+                            <select name="year">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -34,7 +34,7 @@
                                 <option value="5">5</option>
                             </select>
                             <div class="center_content">
-                                <input class="submit_button" type="button" value="Wyślij"/>
+                                <input class="submit_button_inactive" id="form_submit_button" type="button" value="Wyślij"/>
                             </div>
                             <p>* pole wymagane</p>
                         </form>
@@ -78,5 +78,7 @@
                 </div>
             </article>
         </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	    <script type="text/javascript" src="lab6.js"></script>
     </body>
 </html>

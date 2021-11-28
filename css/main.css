@@ -11,6 +11,7 @@
     --link_color: #00b0ff;
     --link_color_hover: #40C4FF;
     --link_color_darker: #0091ea;
+    --error_info: #E53935;
 }
 
 body
