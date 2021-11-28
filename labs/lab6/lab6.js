@@ -86,8 +86,8 @@ function submitButtonOnClick()
     if(!isFormValid()) return;
 
     data = {"firstName": $firstNameInput.val(), "lastName": $lastNameInput.val(), "email": $emailInput.val(), "year": $yearSelect.val()};
-    dataJson = JSON.stringify(data);
-    $.post("lab6_add_data.cgi", dataJson, function(result)
+    dataJson = "data=" + JSON.stringify(data);
+    $.post("../../cgi-bin/lab6_add_data.cgi", dataJson, function(result)
     {
         console.log(result);
     });
