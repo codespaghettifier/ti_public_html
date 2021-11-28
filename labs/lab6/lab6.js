@@ -95,6 +95,15 @@ function submitButtonOnClick()
     });
 }
 
+function requestAndLoadData()
+{
+    $.get("../../cig-bin/lab6_get_data.cgi", function(data, status)
+    {
+        console.log(data);
+        console.log(status);
+    });
+}
+
 function onFormTabButtonClick()
 {
     $formTabButton.attr("class", "menu_option_active");
@@ -109,6 +118,7 @@ function onInspectorTabButtonClick()
     $formTabButton.attr("class", "menu_option_inactive");
     $dataTableContainer.css("display", "flex");
     $dataFormContainer.css("display", "none");
+    requestAndLoadData();
 }
 
 $firstNameInput.on("input", function()
