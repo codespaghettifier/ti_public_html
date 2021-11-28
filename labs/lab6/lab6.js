@@ -91,16 +91,36 @@ function submitButtonOnClick()
     dataJson = "data=" + JSON.stringify(data);
     $.post("../../cgi-bin/lab6_add_data.cgi", dataJson, function(result)
     {
-        console.log(result);
+        //console.log(result);
+    });
+}
+
+function fillTable(records)
+{   
+    $tableBody = $dataTableContainer.find(".data_table tbody");
+    $tableBody.empty();
+    records.forEach(function(record)
+    {
+        $tableBody.append($('<tr>'));
+        $row = $tableBody.find("tr:last-child");
+        $row.append($('<td>' + record['firstName'] + '</td>'));
+        $row.append($('<td>' + record['lastName'] + '</td>'));
+        $row.append($('<td>' + record['email'] + '</td>'));
+        $row.append($('<td>' + record['year'] + '</td>'));
     });
 }
 
 function requestAndLoadData()
 {
-    $.get("../../cig-bin/lab6_get_data.cgi", function(data, status)
+    $.get("../../cgi-bin/lab6_get_data.cgi", function(data, status)
     {
-        console.log(data);
-        console.log(status);
+        if(status != "success")
+        {
+            console.log("Failed to get data: " + status);
+            return
+        }
+
+        fillTable(data);
     });
 }
 
