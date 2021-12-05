@@ -4,7 +4,7 @@ let $pollResultsCanvas = $("#poll_results_canvas")
 let canvasContext = $pollResultsCanvas[0].getContext("2d");
 let canvasWidth;
 let canvasHeight;
-let postRequest = null;
+let requests = {};
 let colors = {"red": 1, "green": 1, "blue": 1, "yellow": 1};
 
 function isButtonChecked()
@@ -40,67 +40,76 @@ function submitButtonOnClick()
     let url = "../../cgi-bin/lab7_add_vote.cgi";
     data = {"color": $(".poll_form_option[name=\"color\"]:checked").val()}
     dataJson = "data=" + JSON.stringify(data);
-    sendPostRequest(url, dataJson, handleAddVoteResponse);
+    sendPostRequest("add vote", url, dataJson, handleAddVoteResponse);
 }
 
 function requestColors()
 {
     let url = "../../cgi-bin/lab7_get_colors.cgi";
-    sendPostRequest(url, "", handleGetColorsResponse);
+    sendPostRequest("get colors", url, "", handleGetColorsResponse);
 }
 
 function handleAddVoteResponse()
 {
-    if(postRequest.readyState == 4)
+    request = requests["add vote"];
+
+    if(request.readyState == 4)
     {
-        if(postRequest.status == 200)
+        if(request.status == 200)
         {
-            console.log(postRequest.responoseText);
+            console.log(request.responoseText);
             requestColors();
         }
         else
         {
-            console.log("Bad response: " + postRequest.responoseText);
+            console.log("Bad response: " + request.responoseText);
         }
 
-        postRequest = null;
+        request = null;
     }
 }
 
 function handleGetColorsResponse()
 {
-    if(postRequest.readyState == 4)
+    request = requests["get colors"];
+
+    if(request.readyState == 4)
     {
-        if(postRequest.status == 200)
+        if(request.status == 200)
         {
-            console.log(postRequest.responoseText);
-            colors = JSON.parse(postRequest.responoseText)
-            console.log(colors);
+            color_json = request.responseText;
+            colors = JSON.parse(color_json);
+            updateCanvas();
         }
         else
         {
-            console.log("Bad response: " + postRequest.responoseText);
+            console.log("Bad response: " + request.responoseText);
         }
 
-        postRequest = null;
+        request = null;
     }
 }
 
-function sendPostRequest(url, messagePayload, responseHandler)
+function sendPostRequest(requestName, url, messagePayload, responseHandler)
 {
-    if(postRequest)
+    if(! (requestName in requests))
     {
-    	console.log("post is not nutll");
+    	requests[requestName] = null;
+    }
+
+    if(requests[requestName] != null)
+    {
+    	console.log("request is not nutll");
     	return;
     }
 
-    postRequest = new XMLHttpRequest();
+    request requests[requestName] = new XMLHttpRequest();
     try
     {
-        postRequest.onreadystatechange = responseHandler;
-        postRequest.open("POST", url, true);
-        postRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
-        postRequest.send(messagePayload);
+        request.onreadystatechange = responseHandler;
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
+        request.send(messagePayload);
     }
     catch(error)
     {
@@ -123,7 +132,6 @@ function updateCanvas()
     let columnWidth = canvasWidth / 5;
     let columnSpace = (canvasWidth - 4 * columnWidth) / 5;
     let columnMaxHeight = canvasHeight * 0.8
-    let colors = {"red": 1, "green": 2, "blue": 3, "yellow": 4};
     let colorsSum = colors["red"] + colors["green"] + colors["blue"] + colors["yellow"];
     let redHeight = colors["red"] / colorsSum * columnMaxHeight;
     let greenHeight = colors["green"] / colorsSum * columnMaxHeight;
@@ -163,3 +171,4 @@ $submitButton.on("click", function()
 });
 
 initCanvas();
+requestColors();
