@@ -57,7 +57,6 @@ function handleAddVoteResponse()
     {
         if(request.status == 200)
         {
-            console.log(request.responoseText);
             requestColors();
         }
         else
@@ -65,7 +64,7 @@ function handleAddVoteResponse()
             console.log("Bad response: " + request.responoseText);
         }
 
-        request = null;
+        requests["add vote"] = null;
     }
 }
 
@@ -86,7 +85,7 @@ function handleGetColorsResponse()
             console.log("Bad response: " + request.responoseText);
         }
 
-        request = null;
+        requests["get colors"] = null;
     }
 }
 
@@ -103,7 +102,9 @@ function sendPostRequest(requestName, url, messagePayload, responseHandler)
     	return;
     }
 
-    request requests[requestName] = new XMLHttpRequest();
+
+    requests[requestName] = new XMLHttpRequest();
+    request = requests[requestName];
     try
     {
         request.onreadystatechange = responseHandler;
@@ -138,6 +139,8 @@ function updateCanvas()
     let blueHeight = colors["blue"] / colorsSum * columnMaxHeight;
     let yellowHeight = colors["yellow"] / colorsSum * columnMaxHeight;
     let captionY = columnMaxHeight + (canvasHeight - columnMaxHeight) / 2;
+    
+    canvasContext.clearRect(0, 0, canvasWidth, canvasHeight);
     
     canvasContext.font = "bold 24px sans-serif";
     canvasContext.textAlign = "center";
