@@ -50,7 +50,6 @@ function handlePostResponse()
         else
         {
             console.log("Bad response: " + postRequest.responoseText);
-            return;
         }
 
         postRequest = null;
@@ -59,7 +58,11 @@ function handlePostResponse()
 
 function sendPostRequest(messagePayload)
 {
-    if(postRequest) return;
+    if(postRequest)
+    {
+    	console.log("post is not nutll");
+    	return;
+    }
 
     postRequest = new XMLHttpRequest();
     try
@@ -67,7 +70,7 @@ function sendPostRequest(messagePayload)
         let url = "../../cgi-bin/lab7_add_vote.cgi";
         postRequest.onreadystatechange = handlePostResponse;
         postRequest.open("POST", url, true);
-        postRequest.setRequestHeader("Content-Type","application/json");
+        postRequest.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8");
         postRequest.send(messagePayload);
     }
     catch(error)
