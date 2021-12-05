@@ -1,6 +1,5 @@
 div.data_form_and_inspector_container
 {
-    /* background-color: var(--content_background_color_lighter); */
     margin: 0 40px;
     padding: 16px 16px;
     box-shadow: 4px 0 4px var(--page_background_color), -4px 0 4px var(--page_background_color);
@@ -96,6 +95,7 @@ form.data_form input.invalid_text_input:hover, form.data_form input.invalid_text
 form.data_form input.submit_button_inactive
 {
     min-height: 42px;
+    margin-top: 16px;
 }
 
 form.data_form input.submit_button_active
@@ -103,6 +103,7 @@ form.data_form input.submit_button_active
     height: 42px;
     border-color: var(--link_color_darker);
     color: var(--link_color);
+    margin-top: 16px;
 }
 
 form.data_form input.submit_button_active:hover

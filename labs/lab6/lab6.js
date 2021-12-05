@@ -1,5 +1,5 @@
-let $dataFormContainer = $(".data_form_container")
-let $dataTableContainer = $(".data_table_container")
+let $dataFormContainer = $(".data_form_container");
+let $dataTableContainer = $(".data_table_container");
 let $dataForm = $(".data_form");
 let $formTabButton = $("#form_tab_button");
 let $inspectorTabButton = $("#inspector_tab_button");
