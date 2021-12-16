@@ -1,0 +1,7 @@
+div.menu_bar
+{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0 0 20px 0;
+}

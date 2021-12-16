@@ -117,14 +117,14 @@ function requestAndLoadData()
         if(status != "success")
         {
             console.log("Failed to get data: " + status);
-            return
+            return;
         }
 
         fillTable(data);
     });
 }
 
-function onFormTabButtonClick()
+function onInputTabButtonClick()
 {
     $formTabButton.attr("class", "menu_option_active");
     $inspectorTabButton.attr("class", "menu_option_inactive");
@@ -132,7 +132,7 @@ function onFormTabButtonClick()
     $dataTableContainer.css("display", "none");
 }
 
-function onInspectorTabButtonClick()
+function onListTabButtonClick()
 {
     $inspectorTabButton.attr("class", "menu_option_active");
     $formTabButton.attr("class", "menu_option_inactive");
@@ -184,10 +184,10 @@ $submitButton.on("click", function()
 
 $formTabButton.on("click", function()
 {
-    onFormTabButtonClick();
+    onInputTabButtonClick();
 });
 
 $inspectorTabButton.on("click", function()
 {
-    onInspectorTabButtonClick();
+    onListTabButtonClick();
 });
