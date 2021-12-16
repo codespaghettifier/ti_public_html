@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Techniki internetowe 2021/2022</title>
+        <link rel="StyleSheet" href="../../css/main.css" type="text/css">
+        <link rel="StyleSheet" href="lab9.css" type="text/css">
+    </head>
+    <body>
+        <div id="content">
+            <header id="main_header">
+                <h1>Techniki internetowe 2021/2022</h1>
+            </header>
+            <article>
+                <div class="forms_and_inspectors_container">
+                    <div class="menu_bar">
+                        <a class="menu_option_active" id="register_tab_button">Rejestracja</a>
+                        <a class="menu_option_inactive" id="login_tab_button">Logowanie</a>
+                        <a class="menu_option_inactive" id="users_tab_button">Użytkownicy</a>
+                        <a class="menu_option_inactive" id="new_entry_tab_button">Nowy wpis</a>
+                        <a class="menu_option_inactive" id="entries_tab_button">Wpisy użytowników</a>
+                        <a class="menu_option_inactive" id="logout_tab_button">Wyloguj</a>
+                    </div>
+                    <div id="register_form_container" class="form_container">
+                        <form class="data_form" id="register_form" name="register_form">
+                            <div class="label_input_pair">
+                                <p>*Imię: <span class="error_info" id="no_first_name_error_info">Brak imienia</span></p>
+                                <input type="text" size="50" name="first name" class="valid_text_input"/>
+                            </div>
+                            <div class="label_input_pair">
+                                <p>*Nazwisko: <span class="error_info" id="no_last_name_error_info">Brak nazwiska</span></p>
+                                <input type="text" size="50" name="last name" class="valid_text_input"/>
+                            </div>
+                            <div class="label_input_pair">
+                                <p>*E-mail: <span class="error_info" id="no_email_name_error_info">Brak adresu e-mail</span></p>
+                                <input type="text" size="50" name="email" class="valid_text_input"/>
+                            </div>
+                            <div class="label_input_pair">
+                                <p>*Hasło: <span class="error_info" id="no_password_name_error_info">Brak hasła</span></p>
+                                <input type="text" size="50" name="password" class="valid_text_input"/>
+                            </div>
+                            <div class="center_content">
+                                <input class="submit_button_inactive" id="register_submit_button" type="button" value="Zarejestruj"/>
+                            </div>
+                            <p>* pole wymagane</p>                        
+                        </form>
+                    </div>
+
+
+                    <div class="data_form_container">
+
+                    </div>
+                    <div class="data_table_container" style="display: none;">
+                        <table class="data_table">
+                    </div>
+                </div>
+            </article>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	    <script type="text/javascript" src="lab9.js"></script>
+    </body>
+</html>
