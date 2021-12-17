@@ -18,7 +18,7 @@
                         <a class="menu_option_inactive" id="login_tab_button">Logowanie</a>
                         <a class="menu_option_inactive" id="new_entry_tab_button">Nowy wpis</a>
                         <a class="menu_option_inactive" id="entries_tab_button">Wpisy użytowników</a>
-                        <a class="menu_option_inactive" id="logout_tab_button">Wyloguj</a>
+                        <a class="menu_option_inactive" id="logout_button">Wyloguj</a>
                     </div>
                     <div id="register_form_container" class="form_container">
                         <form class="data_form" id="register_form" name="register_form">
@@ -74,13 +74,20 @@
                             </div>
                         </form>
                     </div>
-
-
-                    <div class="data_form_container">
-
-                    </div>
-                    <div class="data_table_container" style="display: none;">
+                    <div id="entries_table_container">
                         <table class="data_table">
+                            <thead class="header">
+                                <th>Wpis</th>
+                                <th>Użytownik</th>
+                                <th>Czas wpisu</th>
+                            </thead>
+                            <tbody>
+                                <tr class="entry_record">
+                                    <td>Imię</td>
+                                    <td>Nazwisko</td>
+                                    <td>e-mail</td>
+                                </tr>
+                        </table>
                     </div>
                 </div>
             </article>

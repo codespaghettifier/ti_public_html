@@ -159,7 +159,7 @@ form.data_form input.submit_button
     margin: 16px 0;
 }
 
-div.data_table_container
+div#entries_table_container
 {
     display: flex;
     justify-content: space-around;

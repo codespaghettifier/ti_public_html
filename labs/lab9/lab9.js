@@ -94,7 +94,6 @@ function submitNewEntryForm()
     });
 }
 
-
 function onSubmitButtonClick($form)
 {
     if(isAnyInpuEmpty($form.find(".label_input_pair .data_form_input"))) return;
@@ -116,6 +115,61 @@ function onSubmitButtonClick($form)
         submitNewEntryForm();
         return;
     }
+}
+
+function fillEntriesTable(records)
+{
+    $tableBody = ("#entries_table_container .data_table tbody");
+    $tableBody.empty();
+    records.forEach(function(record)
+    {
+        $tableBody.append($('<tr>'));
+        $row = $tableBody.find("tr:last-child");
+        $row.append($('<td>' + record['entry'] + '</td>'));
+        $row.append($('<td>' + record['user'] + '</td>'));
+        $row.append($('<td>' + record['time'] + '</td>'));
+    });
+}
+
+function requestAndLoadEntries()
+{
+    console.log("requestAndLoadEntries");
+
+    $.post("getEntries.php", function(data, status)
+    {
+        if(status != "success")
+        {
+            console.log("Failed to get entries: " + status);
+            return;
+        }
+
+        fillEntriesTable(data);
+    });
+}
+
+function onRegisterTabButtonClick()
+{
+
+}
+
+function onLoginTabButtonClick()
+{
+
+}
+
+function onNewEntryTabButtonClick()
+{
+
+}
+
+function onEntriesTabButtonClick()
+{
+    requestAndLoadEntries();
+}
+
+function onLogoutButtonClick()
+{
+    
 }
 
 $(".label_input_pair").each(function()
@@ -155,4 +209,27 @@ $(".data_form").each(function()
     });
 });
 
-// $(".data_form input[type=\"button\"")
+$(".menu_bar #register_tab_button").on("click", function()
+{
+    onRegisterTabButtonClick();
+});
+
+$(".menu_bar #login_tab_button").on("click", function()
+{
+    onLoginTabButtonClick();
+});
+
+$(".menu_bar #new_entry_tab_button").on("click", function()
+{
+    onNewEntryTabButtonClick();
+});
+
+$(".menu_bar #entries_tab_button").on("click", function()
+{
+    onEntriesTabButtonClick();
+});
+
+$(".menu_bar #logout_button").on("click", function()
+{
+    onLogoutButtonClick();
+});
