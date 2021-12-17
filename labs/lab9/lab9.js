@@ -117,9 +117,21 @@ function onSubmitButtonClick($form)
     }
 }
 
+function dateString(date)
+{
+	let year = date.getFullYear();
+	let month = date.getMonth();
+	let day = date.getDate();
+	let hour = date.getHours();
+	let minute = date.getMinutes();
+	let second = date.getSeconds();
+	return year + "." + month + "." + day + " " + hour + ":" + minute + ":" + second;
+}
+
+
 function fillEntriesTable(records)
 {
-    $tableBody = ("#entries_table_container .data_table tbody");
+    $tableBody = $("#entries_table_container .data_table tbody");
     $tableBody.empty();
     records.forEach(function(record)
     {
@@ -127,14 +139,13 @@ function fillEntriesTable(records)
         $row = $tableBody.find("tr:last-child");
         $row.append($('<td>' + record['entry'] + '</td>'));
         $row.append($('<td>' + record['user'] + '</td>'));
-        $row.append($('<td>' + record['time'] + '</td>'));
+        let date = new Date(record['time'] * 1000);
+        $row.append($('<td>' + dateString(date) + '</td>'));
     });
 }
 
 function requestAndLoadEntries()
 {
-    console.log("requestAndLoadEntries");
-
     $.post("getEntries.php", function(data, status)
     {
         if(status != "success")
@@ -143,7 +154,7 @@ function requestAndLoadEntries()
             return;
         }
 
-        fillEntriesTable(data);
+        fillEntriesTable($.parseJSON(data));
     });
 }
 
