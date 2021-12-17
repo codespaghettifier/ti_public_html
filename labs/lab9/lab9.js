@@ -63,7 +63,7 @@ function submitRegisterForm()
     data["email"] = $registerForm.find("[name=\"email\"]").val();
     data["password"] = $registerForm.find("[name=\"password\"]").val();
     dataJson = "data=" + JSON.stringify(data);
-    $.post("register.php", dataJson, function(result)
+    $.post("zad04reg.php", dataJson, function(result)
     {
         console.log(result);
     });
