@@ -47,7 +47,7 @@ class Register_new extends Register {
          } 
       }      
       dba_close($this->dbh) ;   
-      $text = ( $access ? 'successful' : 'login failed' ) ;
+      $text = ( $access ? 'Success' : 'Failed' ) ;
       return $text ;
    }
  

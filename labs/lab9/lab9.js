@@ -69,6 +69,12 @@ function submitRegisterForm()
     });
 }
 
+function onSuccessfulLogin()
+{  
+    $(".menu_bar #new_entry_tab_button").css("display", "block");
+    $(".menu_bar #logout_button").css("display", "block");
+}
+
 function submitLoginForm()
 {
     let $loginForm = $("#login_form");
@@ -78,7 +84,10 @@ function submitLoginForm()
     dataJson = "data=" + JSON.stringify(data);
     $.post("zad04log.php", dataJson, function(result)
     {
-        console.log(result);
+        if(result == "Success")
+        {
+            onSuccessfulLogin();
+        }
     });
 }
 
@@ -158,32 +167,67 @@ function requestAndLoadEntries()
     });
 }
 
+function deactivateAllTabs()
+{
+    $(".menu_bar .menu_option").attr("class", "menu_option_inactive menu_option");
+
+    $("#register_form_container").css("display", "none");
+    $("#login_form_container").css("display", "none");
+    $("#new_entry_from_container").css("display", "none");
+    $("#entries_table_container").css("display", "none");
+}
+
 function onRegisterTabButtonClick()
 {
-
+    deactivateAllTabs();
+    console.log("show");
+    $("#register_form_container").css("display", "flex");
+    $("#register_tab_button").attr("class", "menu_option_active menu_option");
 }
 
 function onLoginTabButtonClick()
 {
-
+    deactivateAllTabs();
+    $("#login_form_container").css("display", "flex");
+    $("#login_tab_button").attr("class", "menu_option_active menu_option");
 }
 
 function onNewEntryTabButtonClick()
 {
-
+    deactivateAllTabs();
+    $("#new_entry_from_container").css("display", "flex");
+    $("#new_entry_tab_button").attr("class", "menu_option_active menu_option");
 }
 
 function onEntriesTabButtonClick()
 {
     requestAndLoadEntries();
+
+    deactivateAllTabs();
+    $("#entries_table_container").css("display", "flex");
+    $("#entries_tab_button").attr("class", "menu_option_active menu_option");
+}
+
+function onSuccessfulLogout()
+{  
+    $(".menu_bar #new_entry_tab_button").css("display", "block");
+    $(".menu_bar #logout_button").css("display", "block");
 }
 
 function onLogoutButtonClick()
 {
 	$.post("zad04out.php", function(result)
 	{
-		console.log(result);
+        console.log(result);
+        if(result == "Success")
+        {
+            onSuccessfulLogout();
+        }
 	});
+
+    deactivateAllTabs();
+    $("#login_form_container").css("display", "flex");
+    $("#login_tab_button").attr("class", "menu_option_active menu_option");
 }
 
 $(".label_input_pair").each(function()

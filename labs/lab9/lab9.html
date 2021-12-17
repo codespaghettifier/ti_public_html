@@ -14,13 +14,13 @@
             <article>
                 <div class="forms_and_inspectors_container">
                     <div class="menu_bar">
-                        <a class="menu_option_active" id="register_tab_button">Rejestracja</a>
-                        <a class="menu_option_inactive" id="login_tab_button">Logowanie</a>
-                        <a class="menu_option_inactive" id="new_entry_tab_button">Nowy wpis</a>
-                        <a class="menu_option_inactive" id="entries_tab_button">Wpisy użytowników</a>
-                        <a class="menu_option_inactive" id="logout_button">Wyloguj</a>
+                        <a class="menu_option_inactive menu_option" id="register_tab_button">Rejestracja</a>
+                        <a class="menu_option_active menu_option" id="login_tab_button">Logowanie</a>
+                        <a class="menu_option_inactive menu_option" id="new_entry_tab_button" style="display: none;">Nowy wpis</a>
+                        <a class="menu_option_inactive menu_option" id="entries_tab_button">Wpisy użytowników</a>
+                        <a class="menu_option_inactive menu_option" id="logout_button" style="display: none;">Wyloguj</a>
                     </div>
-                    <div id="register_form_container" class="form_container">
+                    <div id="register_form_container" class="form_container" style="display: none;">
                         <form class="data_form" id="register_form" name="register_form">
                             <div class="label_input_pair">
                                 <p>*Imię: <span class="error_info" id="no_first_name_error_info">Brak imienia</span></p>
@@ -61,7 +61,7 @@
                             </div>
                         </form>
                     </div>
-                    <div id="new_entry_from_container" class="form_container">
+                    <div id="new_entry_from_container" class="form_container" style="display: none;">
                         <form class="data_form" id="new_entry_form" name="new_entry_form">
                             <div class="label_input_pair_stretched">
                                 <div class="text_area_container">
@@ -74,7 +74,7 @@
                             </div>
                         </form>
                     </div>
-                    <div id="entries_table_container">
+                    <div id="entries_table_container" style="display: none;">
                         <table class="data_table">
                             <thead class="header">
                                 <th>Wpis</th>
