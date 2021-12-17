@@ -89,11 +89,13 @@ function onSubmitButtonClick($form)
     if($form.attr("id") == "register_form")
     {
         submitRegisterForm();
+        return;
     }
 
     if($form.attr("id") == "login_form")
     {
-        submitRegisterForm();
+        submitLoginForm();
+        return;
     }
 }
 
