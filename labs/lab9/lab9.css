@@ -49,7 +49,14 @@ div.form_container
 
 form.data_form
 {
+    width: 100%;
     font-size: 20px;
+}
+
+div.label_input_pair
+{
+    margin: auto;
+    width: max-content;
 }
 
 form.data_form span.error_info
@@ -59,7 +66,7 @@ form.data_form span.error_info
     color: var(--error_info);
 }
 
-form.data_form input
+form.data_form input, form.data_form textarea
 {
     height: 32px;
     font-size: 20px;
@@ -70,23 +77,36 @@ form.data_form input
     padding: 4px 8px;
 }
 
-form.data_form input.valid_text_input
+form.data_form .text_area_container
+{
+    width: 80%;
+    margin: auto;
+}
+
+form.data_form .text_area_container textarea
+{
+    width: 100%;
+    height: 400px;
+    margin: auto;
+}
+
+form.data_form .valid_text_input
 {
     border-color: var(--link_color_darker);
 }
 
-form.data_form input.invalid_text_input
+form.data_form .invalid_text_input
 {
     border-color: var(--error_info);
 }
 
-form.data_form input.valid_text_input:hover, form.data_form input.valid_text_input:focus  
+form.data_form .valid_text_input:hover, form.data_form .valid_text_input:focus  
 {
     border-color: var(--link_color);
     box-shadow: 2px 0 2px var(--link_color), -2px 0 2px var(--link_color);
 }
 
-form.data_form input.invalid_text_input:hover, form.data_form input.invalid_text_input:focus  
+form.data_form .invalid_text_input:hover, form.data_form .invalid_text_input:focus  
 {
     border-color: var(--error_info);
     box-shadow: 2px 0 2px var(--error_info), -2px 0 2px var(--error_info);

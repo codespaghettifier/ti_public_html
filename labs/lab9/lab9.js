@@ -26,7 +26,7 @@ function updateSubmitButton($form)
         $button = $form.find(".submit_button_active");
     }
 
-    if(isAnyInpuEmpty($form.find(".label_input_pair input")))
+    if(isAnyInpuEmpty($form.find(".data_form_input")))
     {
         $button.attr("class", "submit_button_inactive");
     }
@@ -38,16 +38,16 @@ function updateSubmitButton($form)
 
 function onInputInput($label_input_pair)
 {
-    let $input = $label_input_pair.find("input");
+    let $input = $label_input_pair.find(".data_form_input");
     let $errorInfo = $label_input_pair.find("span.error_info");
     if(!isInputEmpty($input))
     {
-        $input.attr("class", "valid_text_input");
+        $input.attr("class", "valid_text_input data_form_input");
         $errorInfo.css("display", "none");
     }
     else
     {
-        $input.attr("class", "invalid_text_input");
+        $input.attr("class", "invalid_text_input data_form_input");
         $errorInfo.css("display", "inline");
     }
 
@@ -82,9 +82,22 @@ function submitLoginForm()
     });
 }
 
+function submitNewEntryForm()
+{
+    let $loginForm = $("#new_entry_form");
+    let data = {};
+    data["entry"] = $loginForm.find("[name=\"entry\"]").val();
+    dataJson = "data=" + JSON.stringify(data);
+    $.post("newEntry.php", dataJson, function(result)
+    {
+        console.log(result);
+    });
+}
+
+
 function onSubmitButtonClick($form)
 {
-    if(isAnyInpuEmpty($form.find(".label_input_pair input"))) return;
+    if(isAnyInpuEmpty($form.find(".label_input_pair .data_form_input"))) return;
 
     if($form.attr("id") == "register_form")
     {
@@ -97,17 +110,35 @@ function onSubmitButtonClick($form)
         submitLoginForm();
         return;
     }
+
+    if($form.attr("id") == "new_entry_form")
+    {
+        submitNewEntryForm();
+        return;
+    }
 }
 
 $(".label_input_pair").each(function()
 {
-    $(this).find("input").on("input", function()
+    $(this).find(".data_form_input").on("input", function()
     {
         onInputInput($(this).parent());
     });
-    $(this).find("input").on("blur", function()
+    $(this).find(".data_form_input").on("blur", function()
     {
         onInputInput($(this).parent());
+    });
+});
+
+$(".label_input_pair_stretched").each(function()
+{
+    $(this).find(".data_form_input").on("input", function()
+    {
+        onInputInput($(this).parent().parent());
+    });
+    $(this).find(".data_form_input").on("blur", function()
+    {
+        onInputInput($(this).parent().parent());
     });
 });
 
