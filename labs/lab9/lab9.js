@@ -69,11 +69,29 @@ function submitRegisterForm()
     });
 }
 
+function submitLoginForm()
+{
+    let $loginForm = $("#login_form");
+    let data = {};
+    data["email"] = $loginForm.find("[name=\"email\"]").val();
+    data["password"] = $loginForm.find("[name=\"password\"]").val();
+    dataJson = "data=" + JSON.stringify(data);
+    $.post("zad04log.php", dataJson, function(result)
+    {
+        console.log(result);
+    });
+}
+
 function onSubmitButtonClick($form)
 {
     if(isAnyInpuEmpty($form.find(".label_input_pair input"))) return;
 
     if($form.attr("id") == "register_form")
+    {
+        submitRegisterForm();
+    }
+
+    if($form.attr("id") == "login_form")
     {
         submitRegisterForm();
     }
