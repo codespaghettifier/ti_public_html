@@ -180,7 +180,10 @@ function onEntriesTabButtonClick()
 
 function onLogoutButtonClick()
 {
-    
+	$.post("zad04out.php", function(result)
+	{
+		console.log(result);
+	});
 }
 
 $(".label_input_pair").each(function()

@@ -60,6 +60,13 @@ class Register_new extends Register {
          $ret = $_SESSION['auth'] == 'OK' ? true : false ;
       } else { $ret = false ; }
       return $ret ;
-   } 
+   }
+   
+	function _logout()
+	{
+		unset($_SESSION); 
+		session_destroy();   
+		echo "Success";
+	}
 }
 ?>
