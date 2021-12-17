@@ -84,7 +84,7 @@ function submitLoginForm()
     dataJson = "data=" + JSON.stringify(data);
     $.post("zad04log.php", dataJson, function(result)
     {
-        if(result == "Success")
+        if(result.substring(0, "Success".length) == "Success")
         {
             onSuccessfulLogin();
         }
@@ -210,19 +210,18 @@ function onEntriesTabButtonClick()
 
 function onSuccessfulLogout()
 {  
-    $(".menu_bar #new_entry_tab_button").css("display", "block");
-    $(".menu_bar #logout_button").css("display", "block");
+    $(".menu_bar #new_entry_tab_button").css("display", "none");
+    $(".menu_bar #logout_button").css("display", "none");
 }
 
 function onLogoutButtonClick()
 {
 	$.post("zad04out.php", function(result)
 	{
-        console.log(result);
-        if(result == "Success")
-        {
-            onSuccessfulLogout();
-        }
+		if(result.substring(0, "Success".length) == "Success")
+		{
+		    onSuccessfulLogout();
+		}
 	});
 
     deactivateAllTabs();
