@@ -54,13 +54,12 @@ class Register_new extends Register {
 /*
  * Sprawdzamy czy uzytkownik jest zalogowany 
  */
- /*
+ 
    function _is_logged() {
       if ( isset ( $_SESSION['auth'] ) ) { 
          $ret = $_SESSION['auth'] == 'OK' ? true : false ;
       } else { $ret = false ; }
       return $ret ;
    } 
- */
 }
 ?>
