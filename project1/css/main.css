@@ -1,0 +1,107 @@
+:root
+{
+    --body_background_color: #121212;
+    --content_background_color: #212121;
+    --content_background_color_darker: #121212;
+    --button_active_background_color: #01579b;
+    --primary_color: #00b0ff;
+    --secondary_color: #ff00b0;
+    --link_color: #00b0ff;
+    --link_color_active: #40c4ff;
+    --link_color_inactive: #0091ea;
+}
+
+body
+{
+    background-color: var(--body_background_color);
+    padding: 2rem;
+    margin: 0;
+    display: block;
+    color: #ffffff;
+    font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+    font-size: 1rem;
+}
+
+div.center_content
+{
+    display: flex;
+    justify-content: space-around;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+article
+{
+    background-color: var(--content_background_color);
+    padding: 1rem;
+}
+
+article h1
+{
+    text-align: center;
+    font-size: 2rem;
+    margin: 2rem 0;
+}
+
+nav.article_menu
+{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+nav.article_menu a
+{
+    color: var(--link_color);
+    margin: 0.5rem 0;
+}
+
+nav.article_menu a:hover
+{
+    color: var(--link_color_active);
+    margin: 0.5rem 0;
+}
+
+div.article_content
+{
+    text-align: justify;
+}
+
+article canvas.animation_canvas
+{
+    width: 100%;
+    max-width: 50rem;
+    text-align: center;
+}
+
+code
+{
+    text-align: left;
+}
+
+div#animation_speed_buttons input
+{
+    font-size: 1.25rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--link_color);
+    background-color: var(--content_background_color_darker);
+    color: var(--link_color);
+    padding: 4px 8px;
+    margin: 0 1rem;
+}
+
+div#animation_speed_buttons input:hover, div#animation_speed_buttons input.active
+{
+    font-size: 1.25rem;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--link_color_active);
+    background-color: var(--button_active_background_color);
+    color: var(--link_color_active);
+    padding: 4px 8px;
+}

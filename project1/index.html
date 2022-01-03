@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Techniki internetowe 2021/2022 projekt 1</title>
+        <!-- <link rel="StyleSheet" href="../css/main.css" type="text/css"> -->
+        <link rel="icon" href="images/favicon.png">
+        <link rel="StyleSheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/github-dark.min.css" type="text/css">
+        <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script defer src="js/highlight.min.js"></script>
+    </head>
+    <body>
+        <article>
+            <header class="article_header">
+                <h1>Generacja proceduralna - sfera Fibonacciego</h1>
+                <nav class="article_menu">
+                    <a id="desciption_tab_button">Opis</a>
+                    <a id="code_tab_button">Kod</a>
+                </nav>
+            </header>
+            <div class="article_content">
+                <div id="fibonacci_sphere_description">
+                    <p>
+                        Sfera Fibonacciego to przybliżenie sfery o wierzchołkach rozmieszczonych równomienie na sferze z wykorzystaniem tak zwanego złotego kąta, ściśle związanego z liczbą fi. Kąt ten jest równy (3&nbsp;-&nbsp;sqrt(5))&nbsp;*&nbsp;pi. W przybliżeniu jest to 0,7639&nbsp;*&nbsp;pi&nbsp;*&nbsp;rad lub 137,5&nbsp;stopnia. Ze względu na swoje zalety, sfera Fibonacciego jest często wykorzystywana w generacji proceduralnej, animacjach oraz sztucznej inteligencji w grach.
+                    </p>
+                    <p>
+                        Generowanie sfery jest bardzo tanie pod względem obliczeniowym i paięciowym. Położenie każdego wierzchołka jest obliczane niezależnie, dzięki czemu może odbywać się to równolegle, a kiedy nie potrzeba wszystkich wierzchołków, nie musimy ich generować. Ponadto, w przypadku kiedy mamy bardzo ograniczoną ilość pamięci, możemy nie przechowywać informacji o wierzchołkach, tylko generować wybrany wierzchołek proceduralnie w miejcu, w którym go potrzebujemy. Kolejną zaletą jest możliwość wyboru dowolnej ilości wierzchołków.
+                    </p>
+                    <p>
+                        Generowanie sfery jest bardzo proste i wymaga jedynie kilku linii kodu. Z dobrnymi zmianami możemy stworzyć także dysk lub wycinek sfery.
+                    </p>
+                </div>
+                <pre id="fibonacci_sphere_code" style="display: none;">
+                    <code class="prettyprint lang-js">
+const GOLDEN_ANGLE = (3 - Math.sqrt(5)) * Math.PI;
+let vertices = new Array(numPoints);
+for(let i = 0; i &lt; numPoints; i++)
+{
+    let theta = GOLDEN_ANGLE * i;
+    let y = lerp(-1, 1,  i / numPoints);
+    let radius = Math.sqrt(1 - y * y);
+    let x = radius * Math.cos(theta);
+    let z = radius * Math.sin(theta);
+}
+                    </code>
+                </pre>
+                <div class="center_content">
+                    <canvas class="animation_canvas" id="fibonacci_sphere_canvas"></canvas>
+                </div>
+                <div class="center_content">
+                    <div id="animation_speed_buttons">
+                        <input type="button" id="animation_button_slow" class="active" value="Wolno">
+                        <input type="button" id="animation_button_fast" value="Szybko">
+                    </div>
+                </div>
+            </div>
+            <script src="js/gl-matrix-min.js" defer></script>
+            <script src="js/fibonacci_sphere.js" defer></script>
+        </article>
+    </body>
+</html>
