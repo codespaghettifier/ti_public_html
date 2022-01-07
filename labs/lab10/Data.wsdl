@@ -1,0 +1,45 @@
+<?xml version ='1.0' encoding ='UTF-8' ?>
+<wsdl:definitions name='Data'
+        targetNamespace='http://localhost/webserv1/server.php'
+        xmlns:impl='http://localhost/webserv1/server.php'
+        xmlns:wsd1='http://localhost/schema' 
+        xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+        xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+        xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+        xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' >
+
+      <wsdl:message name='getDataRequest'>
+        <wsdl:part name='symbol' type='xsd:string' />
+      </wsdl:message>
+      <wsdl:message name='getDataResponse'>
+        <wsdl:part name='Result' type='xsd:string'/>
+      </wsdl:message>
+
+      <wsdl:portType name='DataPortType'>
+        <wsdl:operation name='getResults'>
+          <wsdl:input message='impl:getDataRequest' name="getDataRequest" />  
+          <wsdl:output message='impl:getDataResponse' name="getDataResponse" />
+        </wsdl:operation>
+      </wsdl:portType>
+
+      <wsdl:binding name='DataBinding' type='impl:DataPortType'>
+        <soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http'/>
+        <wsdl:operation name='getResults'>
+          <soap:operation soapAction=''/>
+          <wsdl:input name="getDataRequest">
+            <soap:body use='encoded' namespace='http://DefaultNamespace'
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+          </wsdl:input>
+          <wsdl:output name="getDataResponse">
+            <soap:body use='encoded' namespace='http://DefaultNamespace'
+                 encodingStyle='http://schemas.xmlsoap.org/soap/encoding/'/>
+          </wsdl:output>
+        </wsdl:operation>
+      </wsdl:binding>
+
+      <wsdl:service name='DataService'>
+        <wsdl:port name='DataPort' binding='impl:DataBinding'>
+          <soap:address location='http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab11/SoapServer05.php'/>
+        </wsdl:port>
+      </wsdl:service>
+</wsdl:definitions>
