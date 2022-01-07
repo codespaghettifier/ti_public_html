@@ -8,7 +8,7 @@
         <link rel="StyleSheet" href="css/main.css" type="text/css">
         <link rel="stylesheet" href="css/github-dark.min.css" type="text/css">
         <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script defer src="js/highlight.min.js"></script>
+        <script async src="js/highlight.min.js"></script>
     </head>
     <body>
         <article>
@@ -17,10 +17,12 @@
                 <nav class="article_menu">
                     <a id="desciption_tab_button">Opis</a>
                     <a id="code_tab_button">Kod</a>
+                    <a id="documentation_tab_button">Dokumentacja</a>
                 </nav>
             </header>
             <div class="article_content">
                 <div id="fibonacci_sphere_description">
+                    <h3>Sfera Fibonacciego</h3>
                     <p>
                         Sfera Fibonacciego to przybliżenie sfery o wierzchołkach rozmieszczonych równomienie na sferze z wykorzystaniem tak zwanego złotego kąta, ściśle związanego z liczbą fi. Kąt ten jest równy (3&nbsp;-&nbsp;sqrt(5))&nbsp;*&nbsp;pi. W przybliżeniu jest to 0,7639&nbsp;*&nbsp;pi&nbsp;*&nbsp;rad lub 137,5&nbsp;stopnia. Ze względu na swoje zalety, sfera Fibonacciego jest często wykorzystywana w generacji proceduralnej, animacjach oraz sztucznej inteligencji w grach.
                     </p>
@@ -31,8 +33,10 @@
                         Generowanie sfery jest bardzo proste i wymaga jedynie kilku linii kodu. Z dobrnymi zmianami możemy stworzyć także dysk lub wycinek sfery.
                     </p>
                 </div>
-                <pre id="fibonacci_sphere_code" style="display: none;">
-                    <code class="prettyprint lang-js">
+                <div id="code_listing" style="display: none;">
+                    <h3>Generacja wierzchołków sfery Fibonacciego</h3>
+                    <pre id="fibonacci_sphere_code">
+                        <code class="prettyprint lang-js">
 const GOLDEN_ANGLE = (3 - Math.sqrt(5)) * Math.PI;
 let vertices = new Array(numPoints);
 for(let i = 0; i &lt; numPoints; i++)
@@ -43,8 +47,29 @@ for(let i = 0; i &lt; numPoints; i++)
     let x = radius * Math.cos(theta);
     let z = radius * Math.sin(theta);
 }
-                    </code>
-                </pre>
+                        </code>
+                    </pre>
+                </div>
+                <div id="documentation" style="display: none;">
+                    <h3>Opis projektu</h3>
+                    <p>
+                        Projekt przedstawia zagadnienie, jakim jest sfera Fibonacciego. Na stronie znajduje się opis sfery i jej zastosowanie, listing uproszczonego kodu generującego wierzchołki oraz animacja. Na animacji przedstawione są wierzchołki obracającej się sfery. Ilość wierzchołków zmienia się w czasie. Co 250 lub 32 ms generowana jest nowa sfera z jednym wierzchołkiem więcej. Maksymalna ilość wierzchołków wynosi 320. Po jej osiągnięciu ilość jest zerowana. Okres w jakim zwiększana jest ich ilość można zmieniać przyciskami pod animacją.
+                    </p>
+                    <h3>Grafika</h3>
+                    <p>
+                        Animacja została wykonana z użyciem WebGL. Do operacji na macierzach i wektorach (perspektywa, skalowanie, rotacja, translacja itp.) została użyta biblioteka gl-matrix.
+                    </p>
+                    <h3>HTML i CSS</h3>
+                    <p>
+                        Strona przechodzi walidację HTML5 z użyciem walidatora podanego materiałach do zajęć. Użyte zostały dwa arkusze stylów: własny - main.css oraz arkusz używany przez bibliotekę highlight.js - github-dark.min.css. Arkusz main.css również przechodzi walidację.
+                    </p>
+                    <h3>JavaScript</h3>
+                    <p>
+                        Do obsługi przycisków, kolorowania kodu w listingu oraz animacji zostały użyte skrypty wykorzystujace biblioteki: jQuery, gl-matrix oraz highlight.js. Ponadto zostałą wykorzystana tehchnologia WebWorker. Obsługa zdarzeń i wyszukiwanie elementów zostały napisane w "czystym" JavaScripcie, natomiast modyfikacja styli i atrybutów wykorzystuje jQuery.
+                    </p>
+                    <h3>WebWorker</h3>
+                    <p>Do wykonania animacji został użyty WebWorker. Wierzchołki sfery w animacji są generowane proceduralnie w workerze i przekazywane po utworzeniu do wątku głównego. Kod workera znajduzje się w pliku vertices_worker.js.</p>
+                </div>
                 <div class="center_content">
                     <canvas class="animation_canvas" id="fibonacci_sphere_canvas"></canvas>
                 </div>

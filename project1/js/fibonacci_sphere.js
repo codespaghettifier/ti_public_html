@@ -51,20 +51,32 @@ function onAnimationButtonFastClick()
 
 function onDescriptionClick()
 {
-    console.log("dec");
     let desciption = document.getElementById("fibonacci_sphere_description");
-    let code = document.getElementById("fibonacci_sphere_code");
+    let code = document.getElementById("code_listing");
+    let documentation = document.getElementById("documentation");
     $(desciption).css("display", "block");
     $(code).css("display", "none");
+    $(documentation).css("display", "none");
 }
 
 function onCodeClick()
 {
-    console.log("dec");
     let desciption = document.getElementById("fibonacci_sphere_description");
-    let code = document.getElementById("fibonacci_sphere_code");
+    let code = document.getElementById("code_listing");
+    let documentation = document.getElementById("documentation");
     $(desciption).css("display", "none");
     $(code).css("display", "block");
+    $(documentation).css("display", "none");
+}
+
+function onDocumentationClick()
+{
+    let desciption = document.getElementById("fibonacci_sphere_description");
+    let code = document.getElementById("code_listing");
+    let documentation = document.getElementById("documentation");
+    $(desciption).css("display", "none");
+    $(code).css("display", "none");
+    $(documentation).css("display", "block");
 }
 
 window.addEventListener('load', fitAnimationCanvases);
@@ -77,6 +89,7 @@ document.getElementById("animation_button_fast").addEventListener('click', onAni
 
 document.getElementById("desciption_tab_button").addEventListener('click', onDescriptionClick);
 document.getElementById("code_tab_button").addEventListener('click', onCodeClick);
+document.getElementById("documentation_tab_button").addEventListener('click', onDocumentationClick);
 
 function onVerticesWorkerMessage(message)
 {
