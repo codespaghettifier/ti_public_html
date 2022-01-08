@@ -2,14 +2,14 @@
 
    $debug  = 0;
    $client = new SoapClient(null, array(
-      'location' => "http://pascal.fis.agh.edu.pl/~antek/TI_2020/lab11/SoapServer01.php",
+      'location' => "http://pascal.fis.agh.edu.pl/~9libucha/labs/lab10/SoapServer01.php",
       'uri'      => "http://pascal.fis.agh.edu.pl/Demo",
       'soap_version' => SOAP_1_2,
       'trace'    => $debug ));
 
    $return = $client->__soapCall("test",array(""));
    echo "<pre>" ;
-   echo("\n<b>;Returning value of __soapCall() call: </b>".$return);
+   echo("\n<b>Returning value of __soapCall() call: </b>".$return);
    echo "</pre>";
    if ( $debug == 1 ) {
    echo "<pre>" ;
