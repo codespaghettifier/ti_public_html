@@ -1,0 +1,8 @@
+applications:
+- disk_quota: 256M
+  buildpack: https://github.com/cloudfoundry/php-buildpack.git 
+  name: lab10-lw
+  path: .
+  instances: 1
+  memory: 128M
+  stack: cflinuxfs3
