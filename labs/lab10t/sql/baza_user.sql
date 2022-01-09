@@ -1,1 +1,0 @@
-create table uzytkownik ( imie char(20), nazwisko char(20), email char(20) PRIMARY KEY, pass VARCHAR ) ;

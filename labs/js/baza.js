@@ -35,30 +35,6 @@ function register()
     xmlhttpPost(url, msg, resp);
 }
 
-function login()
-{
-    let $registerForm = $("#login_form");
-    let data = {}
-    data["email"] = $registerForm.find("[name=\"email\"]").val();
-    data["password"] = $registerForm.find("[name=\"password\"]").val();
-    dataJson = JSON.stringify(data);
-    var msg = "data=" + encodeURIComponent(dataJson);
-    var url = "index.php?sub=User&action=login";
-    resp = function(response)
-    {
-        console.log(response);
-		if(response == "success")
-		{
-			location.replace("index.php");
-		}
-		else
-		{
-			location.replace("index.php?sub=User&action=loginView");
-		}
-    }
-    xmlhttpPost(url, msg, resp);
-}
-
 function xmlhttpPost(strURL, mess, respFunc) {
     var xmlHttpReq = false;
     var self = this;
@@ -88,4 +64,3 @@ function xmlhttpPost(strURL, mess, respFunc) {
     self.xmlHttpReq.setRequestHeader("Content-length", mess.length);
     self.xmlHttpReq.send(mess);
 }
-

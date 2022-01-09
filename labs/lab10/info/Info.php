@@ -12,9 +12,9 @@ class Info extends Controller {
 
    function __construct() {
       parent::__construct();
-      $this->layout = new View('main') ;   
+      $this->layout = new View('main') ;
       $this->layout->css = $this->css ;
-      // $this->layout->css = "<link rel=\"stylesheet\" href=\"css/main.css\" type=\"text/css\" media=\"screen\" >" ;  
+      // $this->layout->css = "<link rel=\"stylesheet\" href=\"css/main.css\" type=\"text/css\" media=\"screen\" >" ;
       $this->layout->menu = $this->menu ;
       // $this->layout->menu = file_get_contents ('template/menu.tpl') ;
       $this->layout->title = 'Simple MVC' ;
@@ -22,7 +22,7 @@ class Info extends Controller {
 
   function index() {
       $this->layout->header  = 'Simple MVC' ;
-      $this->layout->content = 'Template - test !' ;
+      $this->layout->content = 'MVC' ;
       return $this->layout ;
   }
 
@@ -37,7 +37,7 @@ class Info extends Controller {
 
   function error( $text ) {
       $this->layout->content = $text ;
-      return $this->layout ;       
+      return $this->layout ;
   }
 }
 
