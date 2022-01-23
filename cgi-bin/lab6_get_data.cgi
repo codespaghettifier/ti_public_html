@@ -13,7 +13,6 @@ with open('../labs/lab6/data.csv', 'r') as file:
 
 data_json = json.dumps(records)
 
-print ("Content-type: text/json") 
+print ("Content-type: text/html") 
 print ()
 print(data_json)
-

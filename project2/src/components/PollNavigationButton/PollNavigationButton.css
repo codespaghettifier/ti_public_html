@@ -1,0 +1,35 @@
+.poll_navigation_buttons
+{
+    margin: 0 4rem;
+}
+
+.poll_navigation_buttons .button
+{
+    display: inline-block;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    border-style: solid;;
+    border-radius: 2rem;
+    border-width: 0.2rem;
+}
+
+.poll_navigation_buttons .button_inactive
+{
+    background-color: var(--inactive_button_color);
+    border-color: var(--inactive_button_color);
+    cursor: default;
+}
+
+.poll_navigation_buttons .button_active
+{
+    background-color: var(--link_color_active);
+    border-color: var(--link_color_active);
+    cursor: pointer;
+}
+
+.poll_navigation_buttons .button p
+{
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 0;
+}

@@ -1,0 +1,17 @@
+.poll_menu_items a
+{
+    text-decoration: none;
+}
+
+.poll_link
+{
+    font-size: 1.5rem;
+    margin: 1.5rem 0;
+    color: var(--link_color_inactive)
+}
+
+.poll_link:hover
+{
+    color: var(--link_color_active);
+    text-decoration: underline;
+}

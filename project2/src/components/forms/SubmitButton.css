@@ -1,0 +1,22 @@
+.form_container form button.submit_button
+{
+    box-sizing: content-box;
+    margin: 0.75rem 0;
+    padding: 0.25rem;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 1rem;
+    background-color: var(--content_background_color_darker)
+}
+
+.form_container form button.submit_button_active
+{
+    color: #ffffff;
+    border-color: var(--link_color);
+}
+
+.form_container form button.submit_button_inactive
+{
+    color: var(--inactive_button_color);
+    border-color: var(--inactive_button_color);
+}

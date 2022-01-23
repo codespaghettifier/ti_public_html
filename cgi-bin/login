@@ -1,0 +1,62 @@
+#!/usr/bin/python3
+import sys
+import random
+import string
+from common_functions import *
+
+
+def validate(data):
+    if 'email' in data and 'password' in data:
+        if len(data['email']) and len(data['password']):
+            return True, ''
+        else:
+            return False, json.dumps({'success': False, 'error': 'Data validation failed'})
+    else:
+        return False, json.dumps({'success': False, 'error': 'Incomplete form'})
+
+
+def login(data):
+    db_connection = sqlite3.connect('../project2/database/users.db')
+    cursor = db_connection.execute(f"SELECT password FROM user WHERE email = '{data['email']}'")
+    access = False
+    for row in cursor:
+        access = row[0] == data['password']
+        break
+
+    if not access:
+        return False, json.dumps({'success': False, 'error': 'Password or email invalid'})
+
+    chars = string.ascii_letters + string.digits
+    session = ''.join(random.choice(chars) for i in range(16))
+    token = ''.join(random.choice(chars) for i in range(64))
+    expires = datetime.datetime.now() + datetime.timedelta(hours=1)
+    expires_timestamp = expires.timestamp()
+
+    db_connection.execute(f"INSERT INTO session (session, token, expires) VALUES ('{session}', '{token}', {expires_timestamp});")
+    db_connection.commit()
+    db_connection.close()
+
+    return True, {'session': session, 'token': token, 'expires': expires.strftime("%a, %d %b %Y %H:%M:%S GMT")}
+
+
+jsonData = sys.stdin.read()
+
+data = json.loads(jsonData)
+valid, info = validate(data)
+if valid:
+    access, result = login(data)
+    if access:
+        set_cookie('Session', result['session'], result['expires'])
+        set_cookie('AuthToken', result['token'], result['expires'])
+        print("Content-type: application/json")
+        print()
+        print(json.dumps({'success': True}))
+
+    else:
+        print("Content-type: application/json")
+        print()
+        print(result)
+else:
+    print("Content-type: application/json")
+    print()
+    print(info)

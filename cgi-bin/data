@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+from common_functions import *
+
+
+def get_data():
+    db_connection = sqlite3.connect('../project2/database/polls.db')
+    cursor = db_connection.execute(f"SELECT name FROM sqlite_master WHERE type='table';")
+    poll_names = []
+    for row in cursor:
+        poll_names.append(row[0])
+    poll_names.remove('sqlite_sequence')
+
+    polls = []
+    for name in poll_names:
+        cursor = db_connection.execute(f"SELECT id, answers FROM {name};")
+        quoted_records = [{'id': row[0], 'record': row[1]} for row in cursor]
+        records = [{'id': quoted['id'], 'record': urllib.parse.unquote(quoted['record'])} for quoted in quoted_records]
+        polls.append({'name': name, 'records': records})
+    return polls
+
+
+def main():
+    authorized, authorize_result = authorize()
+    if not authorized:
+        print("Content-type: application/json")
+        print()
+        print(authorize_result)
+        return
+
+    set_cookie('Session', authorize_result['session'], authorize_result['expires'])
+    set_cookie('AuthToken', authorize_result['token'], authorize_result['expires'])
+
+    print("Content-type: application/json")
+    print()
+    print(json.dumps(get_data()))
+
+
+if __name__ == "__main__":
+    main()

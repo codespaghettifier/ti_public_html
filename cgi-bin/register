@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+import sys
+import json
+import sqlite3
+import urllib.parse
+
+
+def quote_data(data):
+    for key, value in data.items():
+        data[key] = urllib.parse.quote(value)
+    return data
+
+
+def register_in_database(data):
+    db_connection = sqlite3.connect('../project2/database/users.db')
+    cursor = db_connection.execute(f"SELECT id FROM user WHERE email = '{data['email']}';")
+    for _ in cursor:
+        return json.dumps({'success': False, 'error': 'Email used'})
+
+    db_connection.execute(f"INSERT INTO user (firstName, lastName, email, password) VALUES ('{data['firstName']}', '{data['lastName']}', '{data['email']}', '{data['password']}');")
+    db_connection.commit()
+    db_connection.close()
+    return json.dumps({'success': True})
+
+
+jsonData = sys.stdin.read()
+
+print("Content-type: application/json")
+print()
+
+data = json.loads(jsonData)
+if 'firstName' in data and 'lastName' in data and 'email' in data and 'password' in data:
+    if len(data['firstName']) and len(data['lastName']) and len(data['email']) and len(data['password']):
+        data = quote_data(data)
+        result = register_in_database(data)
+        print(result)
+    else:
+        print(json.dumps({'success': False, 'error': 'Data validation failed'}))
+else:
+    print(json.dumps({'success': False, 'error': 'Incomplete form'}))

@@ -1,0 +1,66 @@
+#!/usr/bin/python3
+import sys
+import urllib.parse
+from common_functions import *
+
+
+def insert_data_into_database(data):
+    db_connection = sqlite3.connect('../project2/database/polls.db')
+    for poll in data:
+        name = poll['name']
+
+        cursor = db_connection.execute(f"SELECT name FROM sqlite_master WHERE type='table' AND name = '{name}';")
+        table_exists = False
+        for row in cursor:
+            if name == row[0]:
+                table_exists = True
+
+        if not table_exists:
+            db_connection.execute(
+                f"CREATE TABLE {name} (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, answers TEXT NOT NULL);")
+
+        quoted_answers = []
+        for record in poll['records']:
+            answers = record['record']
+            quoted_answers.append(urllib.parse.quote(answers))
+
+        if not len(quoted_answers):
+            continue
+
+        values_str = ''
+        for answers in quoted_answers:
+            values_str += "('" + answers + "'), "
+        values_str = values_str[:-2]
+
+        db_connection.execute(f"INSERT INTO {name} (answers) VALUES {values_str};")
+
+    db_connection.commit()
+    db_connection.close()
+
+
+def main():
+    authorized, authorize_result = authorize()
+    if not authorized:
+        print("Content-type: application/json")
+        print()
+        print(authorize_result)
+        return
+
+    set_cookie('Session', authorize_result['session'], authorize_result['expires'])
+    set_cookie('AuthToken', authorize_result['token'], authorize_result['expires'])
+
+    json_data = sys.stdin.read()
+    data = json.loads(json_data)
+
+    # print("Content-type: application/json")
+    # print()
+    # print(json.dumps(data))
+    insert_data_into_database(data)
+
+    print("Content-type: application/json")
+    print()
+    print(json.dumps({'success': True}))
+
+
+if __name__ == "__main__":
+    main()

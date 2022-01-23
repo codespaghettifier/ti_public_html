@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<poll>
+    <page>
+        <question>
+            Chck all fancy numbers
+        </question>
+        <multiple_choice>
+            <option>42</option>
+            <option>69</option>
+            <option>420</option>
+            <option>2137</option>
+        </multiple_choice>
+    </page>
+    <page>
+        <question>
+            "Nice"
+        </question>
+        <single_choice>
+            <option>42</option>
+            <option>69</option>
+            <option>420</option>
+            <option>2137</option>
+        </single_choice>
+    </page>
+    <page>
+        <question>
+            The answer to life, the universe, and everything
+        </question>
+        <text_inputs>
+            <input><input>
+        </text_inputs>
+    </page>
+</poll>

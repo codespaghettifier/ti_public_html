@@ -1,0 +1,43 @@
+#!/usr/bin/python3
+import sys
+import random
+import string
+from common_functions import *
+
+
+def main():
+    authorized, authorize_result = authorize()
+    if not authorized:
+        print("Content-type: application/json")
+        print()
+        print(authorize_result)
+        return
+
+    new_expires = datetime.datetime.now() - datetime.timedelta(hours=1)
+    new_expires = new_expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
+    set_cookie('Session', authorize_result['session'], new_expires)
+    set_cookie('AuthToken', authorize_result['token'], new_expires)
+
+    if 'HTTP_COOKIE' not in environ:
+        print("Content-type: application/json")
+        print()
+        print(json.dumps({'success': False, 'error': 'No cookie'}))
+
+    cookie_strings = environ['HTTP_COOKIE'].split()
+    cookies = {}
+    for str in cookie_strings:
+        split = str.split('=')
+        cookies[split[0]] = split[1].strip(';')
+
+    db_connection = sqlite3.connect('../project2/database/users.db')
+    db_connection.execute(f"DELETE FROM session WHERE session = '{cookies['Session']}';")
+    db_connection.commit()
+    db_connection.close()
+
+    print("Content-type: application/json")
+    print()
+    print(json.dumps({'success': True}))
+
+
+if __name__ == "__main__":
+    main()

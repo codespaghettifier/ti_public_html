@@ -1,0 +1,19 @@
+a.tab_button
+{
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+a.tab_button_inactive
+{
+    color: var(--link_color_inactive);
+}
+
+a.tab_button_active, a.tab_button_inactive:hover
+{
+    color: var(--link_color_active);
+    text-decoration: underline;
+}

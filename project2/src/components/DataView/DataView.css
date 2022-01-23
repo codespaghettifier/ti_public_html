@@ -1,0 +1,35 @@
+.data_view
+{
+    background-color: var(--content_background_color);
+    margin: 1rem 4rem;
+    padding: 0.5rem 1rem;
+}
+
+.data_view h2
+{
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.data_view .send_data_button
+{
+    text-align: center;
+    margin: 0 1rem;
+    padding: 0 1rem;
+    width: min-content;
+    border-style: solid;
+    border-radius: 2rem;
+    border-width: 0.2rem;
+    background-color: var(--link_color_active);
+    border-color: var(--link_color_active);
+    cursor: pointer;
+}
+
+.data_view .send_data_button p
+{
+    width: max-content;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 0;
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<poll name="test_poll">
+    <page>
+        <question>
+            Lubię
+        </question>
+        <multiple_choice>
+            <option value="placki" name="q1">Placki</option>
+            <option value="pociągi" name="q1">Pociągi</option>
+            <option value="PHP" name="q1">PHP</option>
+            <option value="kremówki" name="q1">Kremówki</option>
+        </multiple_choice>
+    </page>
+    <page>
+        <question>
+            To nie ma tak, że
+        </question>
+        <single_choice>
+            <option value="dobrze" name="q2">dobrze</option>
+            <option value="nie dobrze" name="q2">nie dobrze</option>
+            <option value="dobrze albo nie dobrze" name="q2">dobrze albo nie dobrze</option>
+        </single_choice>
+    </page>
+    <page>
+        <question>
+            The answer to life, the universe, and everything
+        </question>
+        <text_inputs>
+            <input size="16" name="q3">is: </input>
+        </text_inputs>
+    </page>
+    <page>
+        <question>
+            Imię i Nazwisko
+        </question>
+        <text_inputs>
+            <input size="16" name="q4_first_name">Imię: </input>
+            <input size="16" name="q4_last_name">Nazwisko: </input>
+        </text_inputs>
+    </page>
+    <page>
+        <question>
+            Czy lew sprzymierza się z kojotem
+        </question>
+        <single_choice>
+            <option value="tak" name="q5">Tak</option>
+            <option value="nie" name="q5">Nie</option>
+            <option value="jeszcze jak" name="q5">Jeszcze jak</option>
+        </single_choice>
+    </page>
+    <page>
+        <question>
+            Więcej niż jedno zwierze to
+        </question>
+        <multiple_choice>
+            <option value="lama" name="q6">Lama</option>
+            <option value="owca" name="q6">Owca</option>
+            <option value="yyy" name="q6">Yyy...</option>
+            <option value="stado" name="q6">Stado</option>
+        </multiple_choice>
+    </page>
+</poll>

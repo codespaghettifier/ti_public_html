@@ -1,0 +1,56 @@
+#!/usr/bin/python3
+from lxml import etree
+from os import path
+from common_functions import *
+
+
+def main():
+    authorized, authorize_result = authorize()
+    if not authorized:
+        print("Content-type: application/json")
+        print()
+        print(authorize_result)
+        return
+
+    set_cookie('Session', authorize_result['session'], authorize_result['expires'])
+    set_cookie('AuthToken', authorize_result['token'], authorize_result['expires'])
+
+    if 'QUERY_STRING' not in environ:
+        print("Content-type: application/json")
+        print()
+        print(json.dumps({'success': False, 'error': 'No query string'}))
+        return
+
+    query_params = get_query_params()
+    if 'poll' not in query_params or len(query_params['poll']) == 0:
+        print("Content-type: application/json")
+        print()
+        print(json.dumps({'success': False, 'error': 'Invalid query string'}))
+        return
+
+    poll_path = f"../project2/polls/{query_params['poll']}.xml"
+    if not path.exists(poll_path):
+        print("Content-type: application/json")
+        print()
+        print(json.dumps({'success': False, 'error': 'Poll does not exist'}))
+        print(poll_path)
+        return
+
+    with open(poll_path, 'r') as poll_xml:
+        with open('../project2/polls/poll.xsl', 'r') as xsl:
+            xsldom = etree.parse(xsl)
+            polldom = etree.parse(poll_xml)
+            transform = etree.XSLT(xsldom)
+            transform_result = transform(polldom)
+
+            transform_result = str(transform_result)
+            new_line = transform_result.find('\n') + 1
+            transform_result = transform_result[new_line:]
+
+            print("Content-type: text/html")
+            print()
+            print(transform_result)
+
+
+if __name__ == "__main__":
+    main()

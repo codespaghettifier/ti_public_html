@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<poll name="template_poll">
+    <page>
+        <question>
+            Pytanie wielokrotnego wyboru
+        </question>
+        <multiple_choice>
+            <option value="1" name="q1">1</option>
+            <option value="2" name="q1">2</option>
+            <option value="3" name="q1">3</option>
+            <option value="4" name="q1">4</option>
+            <option value="5" name="q1">5</option>
+        </multiple_choice>
+    </page>
+    <page>
+        <question>
+            Pytanie jednokrotnego wyboru
+        </question>
+        <single_choice>
+            <option value="q" name="q2">q</option>
+            <option value="w" name="q2">w</option>
+            <option value="e" name="q2">e</option>
+            <option value="r" name="q2">r</option>
+            <option value="t" name="q2">t</option>
+            <option value="y" name="q2">y</option>
+        </single_choice>
+    </page>
+    <page>
+        <question>
+            Pytanie otwarte
+        </question>
+        <text_inputs>
+            <input size="16" name="q3">Odwpowiedź to: </input>
+        </text_inputs>
+    </page>
+</poll>

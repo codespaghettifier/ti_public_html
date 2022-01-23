@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/~9libucha/project2/build/static/css/main.86b2736a.css",
+    "main.js": "/~9libucha/project2/build/static/js/main.ba74bbb7.js",
+    "static/js/787.ac2c9a79.chunk.js": "/~9libucha/project2/build/static/js/787.ac2c9a79.chunk.js",
+    "index.html": "/~9libucha/project2/build/index.html",
+    "main.86b2736a.css.map": "/~9libucha/project2/build/static/css/main.86b2736a.css.map",
+    "main.ba74bbb7.js.map": "/~9libucha/project2/build/static/js/main.ba74bbb7.js.map",
+    "787.ac2c9a79.chunk.js.map": "/~9libucha/project2/build/static/js/787.ac2c9a79.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86b2736a.css",
+    "static/js/main.ba74bbb7.js"
+  ]
+}
